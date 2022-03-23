@@ -9,3 +9,6 @@ header .row {
     justify-content: center;
     height: 100%;
 }
+header strong{
+    font-size: 1.2rem;
+}

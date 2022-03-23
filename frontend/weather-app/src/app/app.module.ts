@@ -7,14 +7,18 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CityComponent } from './pages/city/city.component';
+import { TitleComponent } from './components/title/title.component';
+import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 
-@NgModule({
+@NgModule({ 
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    CityComponent
+    CityComponent,
+    TitleComponent,
+    WeatherCardComponent
   ],
   imports: [
     BrowserModule,
