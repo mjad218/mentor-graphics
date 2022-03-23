@@ -17,7 +17,8 @@ For the back end to run properly you need to have a Google api key to get the lo
 Also, you need another api key for weather data. 
 
 you can get a Google Maps API key from this page [google maps api](https://developers.google.com/maps/documentation/geocoding/get-api-key)
-for the weather data API, use this website to get a key (weather api)[https://www.worldweatheronline.com/developer/] 
+
+for the weather data API, use this website to get a key [weather api](https://www.worldweatheronline.com/developer/)
 
 Finally, you need to create a .env file and add the needed keys.
 
