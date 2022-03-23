@@ -24,10 +24,11 @@ const getWeatherData = async (location = "Egypt") => {
   return data;
 };
 
-const getCountry = (location) => {
+const getAddress = (location) => {
   const address = location.results[0].address_components;
   const country = address[address.length - 1].long_name;
-  return country;
+  const city = address[0].long_name;
+  return {country, city};
 };
 
 const getCities = async (country) => {
@@ -48,6 +49,6 @@ const getCities = async (country) => {
 module.exports = {
   getLocation,
   getWeatherData,
-  getCountry,
+  getAddress,
   getCities,
 };

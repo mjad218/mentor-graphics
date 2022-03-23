@@ -11,9 +11,13 @@ export class AppComponent {
   cities!: String[];
    
   getPosition(latitude: number, longitude: number) {
+    console.log({latitude,longitude});
   }
 
   ngOnInit () : void {
-    navigator.geolocation.getCurrentPosition( (position) => {this.getPosition(position.coords.latitude , position.coords.longitude)}, (err) => {console.log(err)});
+    const geoOptions = {
+      enableHighAccuracy: true,
+    };
+    navigator.geolocation.getCurrentPosition( (position) => {this.getPosition(position.coords.latitude , position.coords.longitude)}, (err) => {console.log(err)}, geoOptions);
   }
 }

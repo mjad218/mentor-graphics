@@ -1,21 +1,31 @@
 require("dotenv").config();
 const express = require("express");
-const { getLocation, getWeatherData, getCountry, getCities } = require("./helpers");
+const { getLocation, getWeatherData, getAddress, getCities } = require("./helpers");
 const app = express();
 
 app.get("/location", async (req, res) => {
   const { latitude, longitude } = req.query;
-
   if (!latitude || !longitude) {
     res.json({"error" : "your query parameters are wrong"});
   }
-
   const location = await getLocation({ latitude, longitude });
-  const country = getCountry(location);
+  const address = getAddress(location);
+  res.json(location);
+});
 
-  let weatherData = await getWeatherData(country);
+app.get("/cities/:country", async (req, res) => {
+  const { country } = req.params;
   let cities = await getCities(country);
-  weatherData.cities = cities;
+  res.json(cities);
+});
+
+app.get("/weather-data", async (req, res) => {
+  const { city, country } = req.query;
+  if (!city && !country) {
+    res.json({"error" : "your query parameters are wrong"});
+  }
+  const address = `${city}, ${country}`;
+  let weatherData = await getWeatherData(address);
   res.json(weatherData);
 });
 
