@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'weather app';
+  title = 'Weather App';
   getPosition(latitude: number, longitude: number) {
   }
   ngOnInit () : void {

@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-const { getLocation, getWeatherData, getCountry } = require("./helpers");
+const { getLocation, getWeatherData, getCountry, getCities } = require("./helpers");
 const app = express();
 
 app.get("/location", async (req, res) => {
@@ -14,7 +14,8 @@ app.get("/location", async (req, res) => {
   const country = getCountry(location);
 
   let weatherData = await getWeatherData(country);
-
+  let cities = await getCities(country);
+  weatherData.cities = cities;
   res.json(weatherData);
 });
 
