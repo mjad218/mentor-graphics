@@ -14,9 +14,7 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "geoip-lite": "^1.4.4",
-    "node-fetch": "^2.6.7",
-    "request-country": "^0.1.6"
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
