@@ -10,5 +10,8 @@ to start the back end server, you have to
 3. run ```npm install```
 4. run ```npm start```
 
+### Back end is ready now
+the end point ``` https://localhost:4000/location ``` returns the weather data for a specific location
+
 ## Front End 
 I am gonna use Angular for the front end 
