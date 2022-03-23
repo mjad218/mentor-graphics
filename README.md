@@ -20,7 +20,7 @@ you can get a Google Maps API key from this page [google maps api](https://devel
 
 for the weather data API, use this website to get a key [weather api](https://www.worldweatheronline.com/developer/)
 
-Finally, you need to create a .env file and add the needed keys.
+Finally, you need to create a .env file and add the keys.
 
 ## Front End 
 I am gonna use Angular for the front end 
