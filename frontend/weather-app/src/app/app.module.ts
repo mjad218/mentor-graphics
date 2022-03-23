@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CityComponent } from './pages/city/city.component';
 import { TitleComponent } from './components/title/title.component';
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({ 
   declarations: [
@@ -22,7 +23,8 @@ import { WeatherCardComponent } from './components/weather-card/weather-card.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
