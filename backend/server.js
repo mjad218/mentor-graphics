@@ -1,29 +1,24 @@
-require('dotenv').config();
-const express = require('express');
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-const requestCountry = require('request-country');
-
+require("dotenv").config();
+const express = require("express");
+const { getLocation, getWeatherData, getCountry } = require("./helpers");
 const app = express();
 
-app.set("trust proxy", "loopback");
+app.get("/location", async (req, res) => {
+  const { latitude, longitude } = req.query;
 
-app.use(requestCountry.middleware({
-    attributeName: 'requestCountryCode',
-    privateIpCountry: 'US' 
-  }));
+  if (!latitude || !longitude) {
+    res.json({"error" : "your query parameters are wrong"});
+  }
 
-const API_URL = `https://api.worldweatheronline.com/premium/v1/weather.ashx`;
-const key = process.env.KEY;
-app.get('/', async ( req, res ) => {
-    console.log({country : req.requestCountryCode});
-    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    console.log({ip});
-    // let data = await fetch(API_URL + `?key=${key}&q=${ip}&format=json`);
-    // data = await data.json();~
-    // console.log(data);
-    res.send(ip);
+  const location = await getLocation({ latitude, longitude });
+  const country = getCountry(location);
+
+  let weatherData = await getWeatherData(country);
+
+  res.json(weatherData);
 });
 
-app.listen( 4000,() => {
-    console.log('app is running')
-} ) 
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`app is running \nhttp://localhost:${PORT}`);
+});
