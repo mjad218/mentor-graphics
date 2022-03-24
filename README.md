@@ -24,3 +24,9 @@ Finally, you need to create a .env file and add the keys.
 
 ## Front End 
 I am gonna use Angular for the front end 
+
+### User's Location
+This article helped me a lot to get the user's location. [Geo Location api](https://web.dev/native-hardware-user-location/#when-to-use-geolocation) 
+The article shows how to use the geo location API to get the user's location. The API simply returns the coordinates of the user's location.
+
+Then, I used the Google Maps API to get the string representation of the user's location.
