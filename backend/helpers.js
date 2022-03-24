@@ -13,13 +13,11 @@ const getLocation = async ({ latitude, longitude }) => {
 
 const getWeatherData = async (location = "Egypt") => {
   const API_URL = `https://api.worldweatheronline.com/premium/v1/weather.ashx`;
-
   const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
   let data = await fetch(
     API_URL + `?key=${WEATHER_API_KEY}&q=${location}&format=json`
   );
   data = await data.json();
-
   return data;
 };
 
@@ -33,7 +31,6 @@ const getAddress = (location) => {
 const getCities = async (country) => {
   country = country.toLowerCase().trim();
   const CITIES_API = `https://countriesnow.space/api/v0.1/countries/cities`;
-
   let cities = await fetch(CITIES_API, {
     method: "POST",
     redirect: "follow",

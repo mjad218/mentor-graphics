@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CityCardComponent } from './components/city-card/city-card.component';
 import { ListCitiesComponent } from './components/list-cities/list-cities.component';
 import { CitiesComponent } from './pages/cities/cities.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 @NgModule({ 
   declarations: [
@@ -25,7 +26,8 @@ import { CitiesComponent } from './pages/cities/cities.component';
     WeatherCardComponent,
     CityCardComponent,
     ListCitiesComponent,
-    CitiesComponent
+    CitiesComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 const parseCurrentData = (data : any) => {
     const currentData = {
-      time: 'now',
+      time: data.time || 'now',
       temperature: data.temp_C,
       icon: data.weatherIconUrl[0].value,
       description: data.weatherDesc[0].value,
