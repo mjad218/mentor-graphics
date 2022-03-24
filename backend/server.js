@@ -2,15 +2,23 @@ require("dotenv").config();
 const express = require("express");
 const { getLocation, getWeatherData, getAddress, getCities } = require("./helpers");
 const app = express();
+const cors = require('cors');
 
-app.get("/location", async (req, res) => {
+app.use(cors({
+  origin: process.env.FRONT_END_URL,
+  credentials: true,
+  preflightContinue: false 
+}));
+app.options('*', cors());
+
+app.get("/location",async (req, res) => {
   const { latitude, longitude } = req.query;
   if (!latitude || !longitude) {
     res.json({"error" : "your query parameters are wrong"});
   }
   const location = await getLocation({ latitude, longitude });
   const address = getAddress(location);
-  res.json(location);
+  res.json(address);
 });
 
 app.get("/cities/:country", async (req, res) => {

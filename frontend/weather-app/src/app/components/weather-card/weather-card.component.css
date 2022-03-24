@@ -1,0 +1,22 @@
+.card {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  padding: 70px 30px;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.card h2 {
+  font-size: 2rem;
+  margin: 0em 0 0.5em 0;
+}
+
+.card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}

@@ -1,14 +1,18 @@
 <div class="card">
     <div> 
         <h2> 
-            sfdsf
+            {{data.description}}
         </h2>
         <p>
-           dsfdsf 
+            <span> Temperature <span> {{data.temperature}} °C</span></span>
+            <span> Temperature Feels Like<span> {{data.feelsLike}} °C</span></span>
+
         </p>
         <p>
-            dada
+            <span> Pressure <span> {{data.pressure}} °C</span></span>
+            <span> Humidity <span> {{data.humidity}} °C</span></span>
+
         </p>
     </div>
-    <img src=""/>
+    <img src="{{data.icon}}"/>
 </div>

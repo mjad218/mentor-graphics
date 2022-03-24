@@ -10,6 +10,7 @@ import { CityComponent } from './pages/city/city.component';
 import { TitleComponent } from './components/title/title.component';
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CityCardComponent } from './components/city-card/city-card.component';
 
 @NgModule({ 
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     CityComponent,
     TitleComponent,
-    WeatherCardComponent
+    WeatherCardComponent,
+    CityCardComponent
   ],
   imports: [
     BrowserModule,

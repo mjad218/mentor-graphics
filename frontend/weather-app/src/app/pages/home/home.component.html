@@ -1,13 +1,13 @@
 <section aria-labelledby="hero" class="container">
   <app-title
     [title]="'Current Weather Data in '"
-    [highlightedText]="'Cairo, Egypt'"
+    [highlightedText]="city + ', ' + country"
     [id]="'hero'"
   >
   </app-title>
-
+  
   <div class="row">
-    <app-weather-card>
+    <app-weather-card [data]="currentData" >
 
     </app-weather-card>
 
