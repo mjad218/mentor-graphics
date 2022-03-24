@@ -8,7 +8,6 @@ const getLocation = async ({ latitude, longitude }) => {
     MAPS_API + `?latlng=${latitude},${longitude}&key=${MAPS_API_KEY}`
   );
   location = await location.json();
-  console.log({ location : location.results[0] });
   return location;
 };
 
@@ -26,8 +25,8 @@ const getWeatherData = async (location = "Egypt") => {
 
 const getAddress = (location) => {
   const address = location.results[0].address_components;
-  const country = address[address.length - 1].long_name;
-  const city = address[0].long_name;
+  const country = address.filter( loc => loc.types.includes('country') )[0].long_name;
+  const city = address.filter( loc => loc.types.includes('administrative_area_level_1') )[0].long_name;
   return {country, city};
 };
 
