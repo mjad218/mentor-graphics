@@ -1,19 +1,39 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
 .card {
   display: flex;
-  gap: 25px;
+  gap: 35px;
   justify-content: center;
   padding: 70px 30px;
   background-color: var(--bg-color);
   border-radius: 10px;
   align-content: center;
   flex-wrap: wrap;
+  width: max-content;
+  align-items: center;
 }
 
 .card h2 {
   font-size: 2rem;
-  margin: 0em 0 0.5em 0;
+  margin: 0em 0 0.7em 0;
+  line-height: 2rem;
 }
 
+.card p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 25px;
+}
+.card p > span {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 20px;
+}
+.card p > span > span {
+  color: var(--accent-color);
+}
 .card img {
   border-radius: 50%;
   width: 100px;

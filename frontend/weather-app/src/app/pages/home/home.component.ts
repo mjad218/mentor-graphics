@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HourlyStatus } from 'src/app/HourlyStatus';
 import { CitiesService } from 'src/app/services/cities.service';
 import { CountriesService } from 'src/app/services/countries.service';
 import { WeatherService } from 'src/app/services/weather.service';
-
+import parseCurrentData from 'src/app/parseCurrentData';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,27 +14,13 @@ export class HomeComponent implements OnInit {
   title = 'Weather App';
   country: String = 'Egypt';
   cities!: String[];
-  city!: String; 
+  maxCities: number = 5;
+  toBeShownCities!: String[];
+  city: String = 'Cairo'; 
   weatherData!: any;
   currentData!: HourlyStatus;
-  constructor(private citiesService: CitiesService, private countryService: CountriesService, private weatherService: WeatherService) {}
+  constructor(private citiesService: CitiesService, private countryService: CountriesService, private weatherService: WeatherService, private router : Router) {}
 
-  parseCurrentData() {
-    const data = this.weatherData.current_condition[0];
-    const currentData = {
-      time: 'now',
-      temperature: data.temp_C,
-      icon: data.weatherIconUrl[0].value,
-      description: data.weatherDesc[0].value,
-      windSpeed: data.windspeedkmph,
-      windDirection: data.winddireDegree,
-      humidity: data.humidity,
-      pressure: data.pressure,
-      feelsLike: data.FeelsLikeC
-    }
-    console.log(currentData);
-    this.currentData = currentData;
-  }
   getPosition = (latitude: number, longitude: number) => {
     console.log({ latitude, longitude });
 
@@ -44,11 +31,12 @@ export class HomeComponent implements OnInit {
 
     this.citiesService.getCities(this.country).subscribe(({data}) => {
       this.cities = data;
+      this.toBeShownCities = this.cities.slice(0, this.maxCities);
     });
 
     this.weatherService.getWeatherData(this.country, this.city).subscribe(({data}) => {
       this.weatherData = data;
-      this.parseCurrentData();
+      this.currentData = parseCurrentData(this.weatherData.current_condition[0]);
     });
 
   };
@@ -67,5 +55,12 @@ export class HomeComponent implements OnInit {
       geoOptions
     );
   }
-
+  goToCitiesPage() {
+    this.router.navigate(['/cities'], {
+      state: {
+        cities: JSON.stringify(this.cities),
+        country: this.country,
+      }
+    });
+  }
 }

@@ -8,8 +8,22 @@
   
   <div class="row">
     <app-weather-card [data]="currentData" >
-
     </app-weather-card>
+  </div>
+</section>
 
+<section aria-labelledby="cities" class="container">
+  <app-title
+    [title]="'Other Cities in '"
+    [highlightedText]="country"
+    [id]="'cities'"
+  >
+  </app-title>
+  
+  <div class="row">
+    <app-list-cities [cities]="toBeShownCities" [country]="country" >
+
+    </app-list-cities>
+    <a class="cta" (click)="goToCitiesPage()">Show All Cities</a>
   </div>
 </section>

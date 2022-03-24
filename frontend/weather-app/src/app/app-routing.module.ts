@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CitiesComponent } from './pages/cities/cities.component';
 import { CityComponent } from './pages/city/city.component';
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'city/:city', component: CityComponent },
+  { path: 'dashboard/:country/:city', component: CityComponent },
+  { path: 'cities', component: CitiesComponent },
 ];
 
 @NgModule({

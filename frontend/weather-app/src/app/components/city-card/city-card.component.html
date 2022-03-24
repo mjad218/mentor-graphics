@@ -1,1 +1,11 @@
-<p>city-card works!</p>
+<div class="city">
+  <div>
+    <h3>
+      {{ city }}
+    </h3>
+    <p>Temperature</p>
+  </div>
+  <a routerLink="/dashboard/{{country}}/{{ city }}">
+    <span> View Weather </span>
+  </a>
+</div>

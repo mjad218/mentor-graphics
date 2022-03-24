@@ -11,6 +11,8 @@ import { TitleComponent } from './components/title/title.component';
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CityCardComponent } from './components/city-card/city-card.component';
+import { ListCitiesComponent } from './components/list-cities/list-cities.component';
+import { CitiesComponent } from './pages/cities/cities.component';
 
 @NgModule({ 
   declarations: [
@@ -21,7 +23,9 @@ import { CityCardComponent } from './components/city-card/city-card.component';
     CityComponent,
     TitleComponent,
     WeatherCardComponent,
-    CityCardComponent
+    CityCardComponent,
+    ListCitiesComponent,
+    CitiesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,21 @@
-<div class="card">
-    <div> 
-        <h2> 
-            {{data.description}}
-        </h2>
-        <p>
-            <span> Temperature <span> {{data.temperature}} °C</span></span>
-            <span> Temperature Feels Like<span> {{data.feelsLike}} °C</span></span>
-
-        </p>
-        <p>
-            <span> Pressure <span> {{data.pressure}} °C</span></span>
-            <span> Humidity <span> {{data.humidity}} °C</span></span>
-
-        </p>
+<div class="wrapper"> 
+    <div class="card" *ngIf="data">
+        <div> 
+            <h2> 
+                {{data.description}}
+            </h2>
+            <p>
+                <span> Temperature <span> {{data.temperature}} °C</span></span>
+                <span> Temperature Feels Like<span> {{data.feelsLike}} °C</span></span>
+    
+            </p>
+            <p>
+                <span> Pressure <span> {{data.pressure}}</span></span>
+                <span> Humidity <span> {{data.humidity}}</span></span>
+    
+            </p>
+        </div>
+        <img src="{{data.icon}}"/>
     </div>
-    <img src="{{data.icon}}"/>
-</div>
+
+    </div>
