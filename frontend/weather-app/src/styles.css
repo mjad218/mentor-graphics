@@ -68,3 +68,15 @@ body {
         width: 1200px;
     }
 }
+
+.chart {
+    background-color: var(--bg-color);
+    padding: 30px 40px;
+    border-radius: 15px;
+    width: fit-content;
+}
+.chart > svg {
+    width: 750px;
+    height: 500px;
+    max-width: 100%;
+}

@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import { HourlyStatus } from 'src/app/HourlyStatus';
 import { WeatherService } from 'src/app/services/weather.service';
 import parseCurrentData from 'src/app/parseCurrentData';
+import { ChartData, parseChartData } from 'src/app/ChartData';
 
 @Component({
   selector: 'app-city',
@@ -15,7 +16,7 @@ export class CityComponent implements OnInit {
   country!: any;
   weatherData!: any;
   currentData!: HourlyStatus;
-
+  dataByAvgTemp!: ChartData[];
   constructor(private route:ActivatedRoute, private weatherService: WeatherService) {
 
   }
@@ -24,14 +25,15 @@ export class CityComponent implements OnInit {
     this.route.paramMap.subscribe( paramMap => {
       this.city = paramMap.get('city');
       this.country = paramMap.get('country');
-      console.log(this.city , this.country);
   });
 
   this.weatherService.getWeatherData(this.country, this.city).subscribe(({data}) => {
     this.weatherData = data;
     this.currentData =  parseCurrentData(this.weatherData.current_condition[0]);
-    console.log({weather : this.weatherData})
-    console.log({current : this.currentData})
+    this.dataByAvgTemp = this.weatherData.weather.map( (el : any) => { return parseChartData(el, "date" , "avgtempC")});
+    // console.log(this.dataByAvgTemp);
+    // console.log(this.weatherData)
+    // console.log({current : this.currentData})
   });
 
   }

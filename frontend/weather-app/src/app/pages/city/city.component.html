@@ -18,9 +18,9 @@
       [id]="'stats'"
     >
     </app-title>
-    
+  
     <div class="row">
-        <app-bar-chart></app-bar-chart>
-        
+        <app-bar-chart [data]="dataByAvgTemp" *ngIf="dataByAvgTemp"></app-bar-chart>
+
     </div>
   </section>
