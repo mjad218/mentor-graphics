@@ -76,7 +76,12 @@ body {
     width: fit-content;
 }
 .chart > svg {
-    width: 750px;
-    height: 500px;
     max-width: 100%;
+}
+.chart h3 {
+    margin-bottom: 35px;
+}
+
+text {
+    font-size: 8px;
 }

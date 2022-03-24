@@ -1,3 +1,6 @@
 svg {
     fill: var(--accent-color);
 }
+text {
+    font-size: 8px;
+}

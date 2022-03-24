@@ -12,7 +12,7 @@
     </div>
   </section>
 
-  <section aria-labelledby="stats" class="container">
+  <section aria-labelledby="stats" class="container charts">
     <app-title
       [title]="' Statistical Data'"
       [id]="'stats'"
@@ -20,7 +20,8 @@
     </app-title>
   
     <div class="row">
-        <app-bar-chart [data]="dataByAvgTemp" *ngIf="dataByAvgTemp"></app-bar-chart>
+        <app-bar-chart [chart]="1" class="chart1" title="Average Temperature for the last days" [data]="dataByAvgTemp" *ngIf="dataByAvgTemp" height="500" [width]="chartWidth"></app-bar-chart>
+        <app-bar-chart [chart]="2" class="chart2" title="Average Temperature for the last year" [data]="monthByAvgTemp" *ngIf="monthByAvgTemp" height="500" [width]="chartWidth"></app-bar-chart>
 
     </div>
   </section>
