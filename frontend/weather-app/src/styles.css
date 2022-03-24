@@ -1,87 +1,193 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap");
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
 a {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 a.cta {
-    display: flex;
-    justify-content: center;
-    margin: 2em 0;
-    padding: 1em 3em;
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+  padding: 1em 3em;
 }
 :root {
-    font-size: 16px;
-    --accent-color: #226ba3;
-    --bg-color: #fbfbfb;
+  font-size: 16px;
+  --accent-color: #226ba3;
+  --bg-color: #fbfbfb;
 }
 body {
-    font-family: 'Quicksand', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.7;
-    color: #333;
+  font-family: "Quicksand", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.7;
+  color: #333;
+  position: relative;
+  min-height: calc(100vh - 50px);
 }
 
 .row {
-    width: 100%;
-    margin: 0 auto;
+  width: 100%;
+  margin: 0 auto;
 }
 .container {
-    padding: 15px 20px;
+  padding: 15px 20px;
 }
 
 @media (min-width: 1200px) {
-    .row {
-        width: 1200px;
-    }
+  .row {
+    width: 1200px;
+  }
 }
 
 .chart {
-    background-color: var(--bg-color);
-    padding: 30px 40px;
-    border-radius: 15px;
-    width: fit-content;
+  background-color: var(--bg-color);
+  padding: 30px 40px;
+  border-radius: 15px;
+  width: fit-content;
 }
 .chart > svg {
-    max-width: 100%;
+  max-width: 100%;
 }
 .chart h3 {
-    margin-bottom: 35px;
+  margin-bottom: 35px;
 }
 
 text {
-    font-size: 8px;
+  font-size: 8px;
+}
+input {
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  caret-color: var(--accent-color);
+  border: 1px solid #eee;
+  padding-inline-start: 15px;
+  padding-inline-end: 15px;
+}
+
+input:focus-visible {
+  outline: var(--accent-color);
+  outline-offset: -2px;
+  outline-width: 2px;
+  outline-style: solid;
+}
+
+input[type="text"] {
+    color: #333;
+}
+
+input[type="submit"] {
+    background-color: var(--accent-color);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
 }

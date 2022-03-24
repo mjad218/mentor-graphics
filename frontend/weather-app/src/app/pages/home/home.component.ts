@@ -5,6 +5,7 @@ import { CitiesService } from 'src/app/services/cities.service';
 import { CountriesService } from 'src/app/services/countries.service';
 import { WeatherService } from 'src/app/services/weather.service';
 import parseCurrentData from 'src/app/parseCurrentData';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,31 +17,31 @@ export class HomeComponent implements OnInit {
   cities!: String[];
   maxCities: number = 5;
   toBeShownCities!: String[];
-  city: String = 'Cairo'; 
+  city!: String; 
   weatherData!: any;
   currentData!: HourlyStatus;
   constructor(private citiesService: CitiesService, private countryService: CountriesService, private weatherService: WeatherService, private router : Router) {}
 
   getPosition = (latitude: number, longitude: number) => {
-    console.log({ latitude, longitude });
-
     this.countryService.getCountry(latitude, longitude).subscribe(({country ,city}) => {
       this.country = country;
       this.city = city;
     });
-
-    this.citiesService.getCities(this.country).subscribe(({data}) => {
-      this.cities = data;
-      this.toBeShownCities = this.cities.slice(0, this.maxCities);
-    });
-
+    this.getCities();
+    this.getWeatherData();
+  };
+  getWeatherData() {
     this.weatherService.getWeatherData(this.country, this.city).subscribe(({data}) => {
       this.weatherData = data;
       this.currentData = parseCurrentData(this.weatherData.current_condition[0]);
     });
-
-  };
-
+  }
+  getCities() {
+    this.citiesService.getCities(this.country).subscribe(({data}) => {
+      this.cities = data;
+      this.toBeShownCities = this.cities.slice(0, this.maxCities);
+    });  
+  }
   ngOnInit(): void {
     const geoOptions = {
       enableHighAccuracy: true,
@@ -55,12 +56,9 @@ export class HomeComponent implements OnInit {
       geoOptions
     );
   }
-  goToCitiesPage() {
-    this.router.navigate(['/cities'], {
-      state: {
-        cities: JSON.stringify(this.cities),
-        country: this.country,
-      }
-    });
+  locationAccessBlocked(country : String) {
+    this.country = country;
+    this.getCities();
+    this.getWeatherData();
   }
 }

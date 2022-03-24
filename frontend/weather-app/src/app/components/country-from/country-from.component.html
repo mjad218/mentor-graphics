@@ -1,0 +1,20 @@
+<section>
+  <div class="title">
+    <h1>we can't access your location!</h1>
+    <p>
+        you can enter the country or allow us to use your location
+    </p>
+  </div>
+  <div class="row" id="get-country">
+    <form novalidate class="form" (ngSubmit)="onSubmit()">
+            <input
+            type="text"
+            name="country"
+            [(ngModel)]="country"
+            placeholder="country"
+            id="country"
+          />
+          <input type="submit" value="Get Weather" />
+    </form>
+  </div>
+</section>

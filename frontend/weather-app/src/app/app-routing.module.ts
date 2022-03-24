@@ -7,7 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'dashboard/:country/:city', component: CityComponent },
-  { path: 'cities', component: CitiesComponent },
+  { path: 'cities/:country', component: CitiesComponent },
 ];
 
 @NgModule({

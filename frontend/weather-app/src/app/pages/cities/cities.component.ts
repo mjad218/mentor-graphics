@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CitiesService } from 'src/app/services/cities.service';
 
 @Component({
   selector: 'app-cities',
@@ -8,18 +9,20 @@ import { Router } from '@angular/router';
 })
 export class CitiesComponent implements OnInit {
   cities!: String[];
-  routeState: any;
-  country!: String;
+  @Input() country!: any;
 
-  constructor(private router: Router) {
-    if (this.router.getCurrentNavigation()) {
-      this.routeState = this.router.getCurrentNavigation();
-      console.log(this.routeState);
-      if (this.routeState) {
-        this.cities = this.routeState.extras.state.cities ? JSON.parse(this.routeState.extras.state.cities) : '';
-        this.country = this.routeState.extras.state.country ? this.routeState.extras.state.country : '';
-      }
-    }
+  constructor(
+    private route: ActivatedRoute,
+    private citiesService: CitiesService
+  ) {}
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((paramMap) => {
+      this.country = paramMap.get('country');
+    });
+
+    this.citiesService.getCities(this.country).subscribe(({ data }) => {
+      this.cities = data;
+    });
   }
-  ngOnInit(): void {}
 }

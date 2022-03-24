@@ -1,29 +1,30 @@
-<section aria-labelledby="hero" class="container">
+<section aria-labelledby="hero" class="container" *ngIf="weatherData">
   <app-title
     [title]="'Current Weather Data in '"
-    [highlightedText]="city + ', ' + country"
+    [highlightedText]="city ? city + ', ' : ''  + country"
     [id]="'hero'"
   >
   </app-title>
-  
+
   <div class="row">
-    <app-weather-card [data]="currentData" >
-    </app-weather-card>
+    <app-weather-card [data]="currentData"> </app-weather-card>
   </div>
 </section>
 
-<section aria-labelledby="cities" class="container">
-  <app-title
-    [title]="'Other Cities in '"
-    [highlightedText]="country"
-    [id]="'cities'"
-  >
-  </app-title>
-  
-  <div class="row">
-    <app-list-cities [cities]="toBeShownCities" [country]="country" >
+<section aria-labelledby="cities" class="container" *ngIf="weatherData">
+    <app-title
+      [title]="'Other Cities in '"
+      [highlightedText]="country"
+      [id]="'cities'"
+    >
+    </app-title>
 
+  <div class="row">
+    <app-list-cities [cities]="toBeShownCities" [country]="country">
     </app-list-cities>
-    <a class="cta" (click)="goToCitiesPage()">Show All Cities</a>
+    <a class="cta" routerLink="/cities/{{ country }}">Show All Cities</a>
   </div>
+
 </section>
+
+<app-country-from *ngIf="!weatherData" (getCountry)="locationAccessBlocked($event)"></app-country-from>

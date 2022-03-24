@@ -14,6 +14,8 @@ import { CityCardComponent } from './components/city-card/city-card.component';
 import { ListCitiesComponent } from './components/list-cities/list-cities.component';
 import { CitiesComponent } from './pages/cities/cities.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { CountryFromComponent } from './components/country-from/country-from.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({ 
   declarations: [
@@ -27,12 +29,14 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
     CityCardComponent,
     ListCitiesComponent,
     CitiesComponent,
-    BarChartComponent
+    BarChartComponent,
+    CountryFromComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
