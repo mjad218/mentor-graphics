@@ -1,7 +1,7 @@
 <section aria-labelledby="hero" class="container" *ngIf="weatherData">
   <app-title
     [title]="'Current Weather Data in '"
-    [highlightedText]="city ? city + ', ' : ''  + country"
+    [highlightedText]="(city ? city + ', ' : ''  )+ country"
     [id]="'hero'"
   >
   </app-title>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "my-weather-app-gad": {
+      "hosting": {
+        "weather-app": [
+          "my-weather-app-gad"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "my-weather-app-gad"
+  }
+}

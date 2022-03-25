@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CitiesService {
-  private API_URL = `http://localhost:4000/cities/`;
+  private API_URL = `https://us-central1-my-weather-app-gad.cloudfunctions.net/cities/`;
   constructor(private http:HttpClient) { }
 
   getCities(country : String) : Observable<any> {
