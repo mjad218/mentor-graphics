@@ -21,7 +21,7 @@ locations.use(cors({
 }));
 locations.options('*', cors());
 
-locations.get("/location",async (req, res) => {
+locations.get("/",async (req, res) => {
   const { latitude, longitude } = req.query;
   if (!latitude || !longitude) {
     res.json({"error" : "your query parameters are wrong"});
@@ -40,7 +40,7 @@ cities.use(cors({
 }));
 cities.options('*', cors());
 
-cities.get("/cities/:country", async (req, res) => {
+cities.get("/:country", async (req, res) => {
   const { country } = req.params;
   let cities = await getCities(country);
   res.json(cities);
@@ -56,7 +56,7 @@ weather.use(cors({
 }));
 weather.options('*', cors());
 
-weather.get("/weather-data", async (req, res) => {
+weather.get("/", async (req, res) => {
   const { city, country } = req.query;
   if (!city && !country) {
     res.json({"error" : "your query parameters are wrong"});
